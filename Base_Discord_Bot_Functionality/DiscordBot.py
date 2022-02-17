@@ -1,3 +1,4 @@
+import discord
 from discord import Client, utils
 from Dependencies.GrabbingCreds import GrabingCreds
 
@@ -13,6 +14,9 @@ class Discord_Handler(Client):
         await member.create_dm(f'Hi {member.name}, welcome to my ADHD Brain!')
 
     async def on_message(self, message):
+        print(message.type)
+        if message.type is discord.MessageType.pins_add:
+            await message.delete()
         if message.author == client.user:
             return
         

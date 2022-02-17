@@ -10,7 +10,6 @@ class GrabingCreds:
     def GrabCreds(self, section, item):
         config = configparser.ConfigParser()
         config.read(self.file)
-        print(str(config.sections))
         needed_section = config[section]
         items = needed_section[item]
         return items
